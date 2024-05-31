@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Order Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Application -->
+        <div id="main-app" class="page" style="display:none;">
+            <!-- Dark Theme Toggle Switch -->
+            <div class="header">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button id="active-orders-tab" class="active">Active Orders</button>
+                <button id="completed-orders-tab">Completed Orders</button>
+            </div>
+
+            <!-- Tabs Content -->
+            <div class="tab-content" id="active-orders">
+                <h2>Active Sale Orders</h2>
+                <table id="active-orders-table" style="width: 100%;">
+                    
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Active orders will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-content" id="completed-orders">
+                <h2>Completed Sale Orders</h2>
+                <table id="completed-orders-table" style="width: 100%;">
+                    <colgroup>
+                        <col span="1" style="background-color: #D6EEEE">
+                      </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Completed orders will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- + Sale Order Button -->
+            <button id="add-order-btn" class="modal-trigger">+ Sale Order</button>
+        </div>
+    </div>
+
+    <!-- Sale Order Modal -->
+    <div id="sale-order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Sale Order</h2>
+            <form id="sale-order-form">
+                <div class="input-group">
+                    <label for="customer-name">Customer Name</label>
+                    <input type="text" id="customer-name" name="customer-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="product">Product</label>
+                    <input type="text" id="product" name="product" required>
+                </div>
+                <div class="input-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" required>
+                </div>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sale Order Edit Modal -->
+    <div id="edit-order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Sale Order</h2>
+            <form id="edit-order-form">
+                <div class="input-group">
+                    <label for="edit-customer-name">Customer Name</label>
+                    <input type="text" id="edit-customer-name" name="edit-customer-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="edit-product">Product</label>
+                    <input type="text" id="edit-product" name="edit-product" required>
+                </div>
+                <div class="input-group">
+                    <label for="edit-quantity">Quantity</label>
+                    <input type="number" id="edit-quantity" name="edit-quantity" required>
+                </div>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
